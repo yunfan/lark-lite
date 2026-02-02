@@ -1,0 +1,17 @@
+{
+  "name": "lark-lite",
+  "version": "0.1.0",
+  "type": "module",
+  "license": "MIT",
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "build:bun": "esbuild src/index.ts --bundle --format=esm --platform=neutral --outfile=dist/lark-lite-bun.ts --external:node:fs/promises",
+    "build:web": "esbuild src/index.ts --bundle --format=esm --platform=browser --outfile=dist/lark-lite-web.ts --external:node:fs/promises",
+    "build:node": "esbuild src/index.ts --bundle --format=esm --platform=node --outfile=dist/lark-lite-node.ts --external:node:fs/promises"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "typescript": "^5.9.3"
+  }
+}
