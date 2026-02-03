@@ -8,10 +8,17 @@
     "build": "tsc -p tsconfig.json",
     "build:bun": "esbuild src/index.ts --bundle --format=esm --platform=neutral --outfile=dist/lark-lite-bun.ts --external:node:fs/promises",
     "build:web": "esbuild src/index.ts --bundle --format=esm --platform=browser --outfile=dist/lark-lite-web.ts --external:node:fs/promises",
-    "build:node": "esbuild src/index.ts --bundle --format=esm --platform=node --outfile=dist/lark-lite-node.ts --external:node:fs/promises"
+    "build:node": "esbuild src/index.ts --bundle --format=esm --platform=node --outfile=dist/lark-lite-node.ts --external:node:fs/promises",
+    "build:bun:ts": "node scripts/bundle-ts.js src/index.ts dist/lark-lite-bun-typed.ts",
+    "build:web:ts": "node scripts/bundle-ts.js src/index.ts dist/lark-lite-web-typed.ts",
+    "build:node:ts": "node scripts/bundle-ts.js src/index.ts dist/lark-lite-node-typed.ts",
+    "build:all:ts": "npm run build:bun:ts && npm run build:web:ts && npm run build:node:ts"
   },
   "devDependencies": {
+    "@types/node": "^25.2.0",
+    "dts-bundle-generator": "^9.5.1",
     "esbuild": "^0.25.0",
+    "tsup": "^8.5.1",
     "typescript": "^5.9.3"
   }
 }
